@@ -1,0 +1,27 @@
+# Virtual environments — not portable, not source. requirements.txt and
+# requirements-dev.txt are what a clone needs to recreate these.
+physdistill/
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Training-time data (data/tft_artifacts_jiaxing/) is read-only upstream
+# output, not needed to run the dashboard — see README.md section 1.
+# data/serving/ and artifacts/ ARE needed at runtime and are NOT ignored.
+data/tft_artifacts_jiaxing/
+
+# Scratch / local run logs from ad-hoc server restarts
+*.log
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini

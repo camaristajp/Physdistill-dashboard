@@ -1,0 +1,14 @@
+station_id,encoder_key,display_name,group,capacity_kwh,capacity_source,p_tail,peak_observed,mean_demand,train_exceedance_pct,n_hours,confidence_tier,active
+expressway_service_district_a,Expressway Service District A,Expressway Service District A,corridor,70.0,derived,55.6,107.5,7.62,0.25,13128,moderate,True
+expressway_service_district_b,Expressway Service District B,Expressway Service District B,corridor,60.0,derived,53.9,97.8,7.46,0.58,13128,moderate,True
+expressway_service_district_c,Expressway Service District C,Expressway Service District C,corridor,150.0,derived,131.3,199.9,29.43,0.46,13128,moderate,True
+park_a,Park A,Park A,recreation,120.0,derived,108.7,182.1,17.11,0.6,13128,high,True
+park_b,Park B,Park B,recreation,210.0,derived,186.2,294.3,60.54,0.14,13128,high,True
+technology_park,Technology Park,Technology Park,recreation,130.0,derived,112.7,151.4,35.14,0.15,13128,unavailable,False
+tourist_attraction,Tourist Attraction,Tourist Attraction,recreation,90.0,derived,77.7,174.3,12.13,0.55,13128,low,True
+financial_industrial_park,Financial Industrial Park,Financial Industrial Park,retail_mixed,160.0,derived,137.2,293.6,18.88,0.43,13128,moderate,True
+shopping_mall,Shopping Mall,Shopping Mall,retail_mixed,150.0,derived,129.6,179.1,43.15,0.2,13128,high,True
+wholesale_market,Wholesale Market,Wholesale Market,retail_mixed,120.0,derived,106.3,184.1,22.43,0.48,13128,high,True
+bus_station,Bus Station,Bus Station,schedule_driven,200.0,derived,178.3,254.0,55.05,0.23,13128,high,True
+government_agency,Government Agency,Government Agency,schedule_driven,180.0,derived,158.6,272.4,35.09,0.39,13128,high,True
+industrial_park,Industrial Park	,Industrial Park,schedule_driven,90.0,derived,74.8,193.5,13.53,0.32,13128,high,True

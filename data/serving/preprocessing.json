@@ -1,0 +1,616 @@
+{
+  "model": "physdistill_ev",
+  "dataset": "jiaxing",
+  "encoder_length": 168,
+  "prediction_length": 24,
+  "quantiles": [
+    0.02,
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    0.9,
+    0.98
+  ],
+  "target": {
+    "column": "Energy_kWh_log",
+    "transform": "log1p",
+    "inverse": "expm1",
+    "normalizer": "GroupNormalizer",
+    "target_scale": [
+      0.0,
+      2.297892322797676
+    ],
+    "floor_at_zero": true,
+    "apply_scale_in_postprocess": true,
+    "scale_source": "norm_"
+  },
+  "x_reals": [
+    "encoder_length",
+    "Fee",
+    "relative_time_idx",
+    "Lagged_Energy_168h",
+    "Rolling_Mean_Energy_24h",
+    "Lagged_Energy_24h",
+    "Rolling_Mean_Energy_168h",
+    "IsCharging_Lag1h_f",
+    "IsCharging_Lag24h_f",
+    "Was_Idle_LastHour",
+    "Temperature_C",
+    "Relative_Humidity",
+    "Precipitation_mm",
+    "Is_Abnormal",
+    "Is_Covid_Lockdown"
+  ],
+  "derived_reals": [
+    "encoder_length",
+    "relative_time_idx"
+  ],
+  "panel_reals": [
+    "Fee",
+    "Lagged_Energy_168h",
+    "Rolling_Mean_Energy_24h",
+    "Lagged_Energy_24h",
+    "Rolling_Mean_Energy_168h",
+    "IsCharging_Lag1h_f",
+    "IsCharging_Lag24h_f",
+    "Was_Idle_LastHour",
+    "Temperature_C",
+    "Relative_Humidity",
+    "Precipitation_mm",
+    "Is_Abnormal",
+    "Is_Covid_Lockdown"
+  ],
+  "x_categoricals": [
+    "Location_Information",
+    "District_Name",
+    "Month",
+    "Hour_of_Day",
+    "Day_of_Week",
+    "Is_Holiday",
+    "Is_Weekend",
+    "ToU_Period",
+    "Hour_of_Week"
+  ],
+  "cardinalities": {
+    "Location_Information": 13,
+    "District_Name": 3,
+    "Month": 12,
+    "Hour_of_Day": 24,
+    "Day_of_Week": 7,
+    "Is_Holiday": 2,
+    "Is_Weekend": 2,
+    "ToU_Period": 3,
+    "Hour_of_Week": 168
+  },
+  "vocab": {
+    "Location_Information": {
+      "Bus Station": 0,
+      "Expressway Service District A": 1,
+      "Expressway Service District B": 2,
+      "Expressway Service District C": 3,
+      "Financial Industrial Park": 4,
+      "Government Agency": 5,
+      "Industrial Park\t": 6,
+      "Park A": 7,
+      "Park B": 8,
+      "Shopping Mall": 9,
+      "Technology Park": 10,
+      "Tourist Attraction": 11,
+      "Wholesale Market": 12
+    },
+    "District_Name": {
+      "Nanhu": 0,
+      "Tongxiang": 1,
+      "Xiuzhou": 2
+    },
+    "Month": {
+      "1": 0,
+      "10": 1,
+      "11": 2,
+      "12": 3,
+      "2": 4,
+      "3": 5,
+      "4": 6,
+      "5": 7,
+      "6": 8,
+      "7": 9,
+      "8": 10,
+      "9": 11
+    },
+    "Hour_of_Day": {
+      "0": 0,
+      "1": 1,
+      "10": 2,
+      "11": 3,
+      "12": 4,
+      "13": 5,
+      "14": 6,
+      "15": 7,
+      "16": 8,
+      "17": 9,
+      "18": 10,
+      "19": 11,
+      "2": 12,
+      "20": 13,
+      "21": 14,
+      "22": 15,
+      "23": 16,
+      "3": 17,
+      "4": 18,
+      "5": 19,
+      "6": 20,
+      "7": 21,
+      "8": 22,
+      "9": 23
+    },
+    "Day_of_Week": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6
+    },
+    "Is_Holiday": {
+      "0": 0,
+      "1": 1
+    },
+    "Is_Weekend": {
+      "0": 0,
+      "1": 1
+    },
+    "ToU_Period": {
+      "off_peak": 0,
+      "peak": 1,
+      "sharp": 2
+    },
+    "Hour_of_Week": {
+      "0": 0,
+      "1": 1,
+      "10": 2,
+      "100": 3,
+      "101": 4,
+      "102": 5,
+      "103": 6,
+      "104": 7,
+      "105": 8,
+      "106": 9,
+      "107": 10,
+      "108": 11,
+      "109": 12,
+      "11": 13,
+      "110": 14,
+      "111": 15,
+      "112": 16,
+      "113": 17,
+      "114": 18,
+      "115": 19,
+      "116": 20,
+      "117": 21,
+      "118": 22,
+      "119": 23,
+      "12": 24,
+      "120": 25,
+      "121": 26,
+      "122": 27,
+      "123": 28,
+      "124": 29,
+      "125": 30,
+      "126": 31,
+      "127": 32,
+      "128": 33,
+      "129": 34,
+      "13": 35,
+      "130": 36,
+      "131": 37,
+      "132": 38,
+      "133": 39,
+      "134": 40,
+      "135": 41,
+      "136": 42,
+      "137": 43,
+      "138": 44,
+      "139": 45,
+      "14": 46,
+      "140": 47,
+      "141": 48,
+      "142": 49,
+      "143": 50,
+      "144": 51,
+      "145": 52,
+      "146": 53,
+      "147": 54,
+      "148": 55,
+      "149": 56,
+      "15": 57,
+      "150": 58,
+      "151": 59,
+      "152": 60,
+      "153": 61,
+      "154": 62,
+      "155": 63,
+      "156": 64,
+      "157": 65,
+      "158": 66,
+      "159": 67,
+      "16": 68,
+      "160": 69,
+      "161": 70,
+      "162": 71,
+      "163": 72,
+      "164": 73,
+      "165": 74,
+      "166": 75,
+      "167": 76,
+      "17": 77,
+      "18": 78,
+      "19": 79,
+      "2": 80,
+      "20": 81,
+      "21": 82,
+      "22": 83,
+      "23": 84,
+      "24": 85,
+      "25": 86,
+      "26": 87,
+      "27": 88,
+      "28": 89,
+      "29": 90,
+      "3": 91,
+      "30": 92,
+      "31": 93,
+      "32": 94,
+      "33": 95,
+      "34": 96,
+      "35": 97,
+      "36": 98,
+      "37": 99,
+      "38": 100,
+      "39": 101,
+      "4": 102,
+      "40": 103,
+      "41": 104,
+      "42": 105,
+      "43": 106,
+      "44": 107,
+      "45": 108,
+      "46": 109,
+      "47": 110,
+      "48": 111,
+      "49": 112,
+      "5": 113,
+      "50": 114,
+      "51": 115,
+      "52": 116,
+      "53": 117,
+      "54": 118,
+      "55": 119,
+      "56": 120,
+      "57": 121,
+      "58": 122,
+      "59": 123,
+      "6": 124,
+      "60": 125,
+      "61": 126,
+      "62": 127,
+      "63": 128,
+      "64": 129,
+      "65": 130,
+      "66": 131,
+      "67": 132,
+      "68": 133,
+      "69": 134,
+      "7": 135,
+      "70": 136,
+      "71": 137,
+      "72": 138,
+      "73": 139,
+      "74": 140,
+      "75": 141,
+      "76": 142,
+      "77": 143,
+      "78": 144,
+      "79": 145,
+      "8": 146,
+      "80": 147,
+      "81": 148,
+      "82": 149,
+      "83": 150,
+      "84": 151,
+      "85": 152,
+      "86": 153,
+      "87": 154,
+      "88": 155,
+      "89": 156,
+      "9": 157,
+      "90": 158,
+      "91": 159,
+      "92": 160,
+      "93": 161,
+      "94": 162,
+      "95": 163,
+      "96": 164,
+      "97": 165,
+      "98": 166,
+      "99": 167
+    }
+  },
+  "vocab_source": {
+    "Location_Information": "embedding_labels",
+    "District_Name": "embedding_labels",
+    "Month": "embedding_labels",
+    "Hour_of_Day": "embedding_labels",
+    "Day_of_Week": "embedding_labels",
+    "Is_Holiday": "embedding_labels",
+    "Is_Weekend": "embedding_labels",
+    "ToU_Period": "embedding_labels",
+    "Hour_of_Week": "embedding_labels"
+  },
+  "scalers": {
+    "Fee": {
+      "center": 15.778523809523808,
+      "scale": 45.73714873869291,
+      "source": "fee_scaler"
+    },
+    "Lagged_Energy_168h": {
+      "center": 3.185785053925791,
+      "scale": 2.0552167975995026,
+      "source": "lag_scaler"
+    },
+    "Rolling_Mean_Energy_24h": {
+      "center": 2.847849005925328,
+      "scale": 1.571501208299535,
+      "source": "lag_scaler"
+    },
+    "Lagged_Energy_24h": {
+      "center": 3.2183206927034975,
+      "scale": 1.9507844598127817,
+      "source": "lag_scaler"
+    },
+    "Rolling_Mean_Energy_168h": {
+      "center": 2.7699839034221307,
+      "scale": 1.5643227666902593,
+      "source": "lag_scaler"
+    },
+    "Temperature_C": {
+      "center": 17.3,
+      "scale": 14.100000000000001,
+      "source": "weather_scaler"
+    },
+    "Relative_Humidity": {
+      "center": 77.0,
+      "scale": 19.0,
+      "source": "weather_scaler"
+    },
+    "Precipitation_mm": {
+      "center": 0.0,
+      "scale": 1.6,
+      "source": "weather_scaler"
+    }
+  },
+  "scalers_already_applied_to_panel": true,
+  "sklearn_vocab_sizes": {
+    "Location_Information": 14,
+    "District_Name": 4
+  },
+  "unmapped_panel_values": {},
+  "notes": [
+    "encoder_cont and decoder_cont follow x_reals order exactly.",
+    "encoder_length and relative_time_idx are derived per window.",
+    "Station keys may contain trailing whitespace; match on encoder_key.",
+    "Vocabularies cover the full training range, not just the panel.",
+    "derived_scalers and panel_column_transforms were solved from a real dataloader batch; window.py must reproduce both.",
+    "Panel values carry the training-time RobustScaler already. The dataset fits a SECOND scaler on top; panel_column_transforms is that layer and window.py must apply it. derived_scalers divide by max_encoder_length.",
+    "The ONNX wrapper passed target_scale=[0,1], so the graph does not apply the normalizer. postprocess.to_kwh multiplies by target_scale before expm1: kWh = expm1(center + scale * raw).",
+    "The ONNX wrapper passed target_scale=[0,1], so the graph does not apply the normalizer. postprocess.to_kwh multiplies by target_scale before expm1: kWh = expm1(center + scale * raw)."
+  ],
+  "derived_scalers": {
+    "relative_time_idx": {
+      "center": -9.208222201049064e-09,
+      "scale": 167.9999999916109,
+      "source": "solved from batch"
+    },
+    "encoder_length": {
+      "center": 0.0,
+      "scale": 168.0,
+      "source": "solved from batch"
+    }
+  },
+  "panel_column_transforms": {
+    "Fee": {
+      "center": 0.33175294974440267,
+      "scale": 0.8751773062017882,
+      "source": "solved from 8 window(s)"
+    },
+    "Lagged_Energy_168h": {
+      "center": -0.44961071848309914,
+      "scale": 0.832299352001037,
+      "source": "solved from 8 window(s)"
+    },
+    "Rolling_Mean_Energy_24h": {
+      "center": -0.3511380248490852,
+      "scale": 0.758515761166922,
+      "source": "solved from 8 window(s)"
+    },
+    "Lagged_Energy_24h": {
+      "center": -0.47412688597355723,
+      "scale": 0.8717861862139218,
+      "source": "solved from 8 window(s)"
+    },
+    "Rolling_Mean_Energy_168h": {
+      "center": -0.30720644826967636,
+      "scale": 0.7389635156192569,
+      "source": "solved from 8 window(s)"
+    },
+    "IsCharging_Lag1h_f": {
+      "center": 0.7156166502601603,
+      "scale": 0.4511202280219629,
+      "source": "declared, confirmed on 8 constant window(s)"
+    },
+    "IsCharging_Lag24h_f": {
+      "center": 0.7141283457554024,
+      "scale": 0.4518285643294974,
+      "source": "declared, confirmed on 8 constant window(s)"
+    },
+    "Was_Idle_LastHour": {
+      "center": 0.28427201987531053,
+      "scale": 0.45106700011342177,
+      "source": "declared, confirmed on 8 constant window(s)"
+    },
+    "Temperature_C": {
+      "center": -0.007662485926166068,
+      "scale": 0.5744248031142618,
+      "source": "solved from 8 window(s)"
+    },
+    "Relative_Humidity": {
+      "center": -0.0570798374424692,
+      "scale": 0.705192177136353,
+      "source": "solved from 8 window(s)"
+    },
+    "Precipitation_mm": {
+      "center": 1.695963993748134,
+      "scale": 4.594656744162386,
+      "source": "solved from 8 window(s)"
+    },
+    "Is_Abnormal": {
+      "center": 0.09734917842106162,
+      "scale": 0.2964326572669672,
+      "source": "solved from 8 window(s)"
+    },
+    "Is_Covid_Lockdown": {
+      "center": 0.1663619744058501,
+      "scale": 0.3724052468449355,
+      "source": "declared, confirmed on 8 constant window(s)"
+    }
+  },
+  "declared_dataset_scalers": {
+    "encoder_length": {
+      "center": 0.0,
+      "scale": 1.0,
+      "type": "StandardScaler",
+      "fitted": true,
+      "matched_as": "StandardScaler"
+    },
+    "Fee": {
+      "center": 0.33175294930699345,
+      "scale": 0.8751773065309147,
+      "type": "StandardScaler",
+      "fitted": true,
+      "matched_as": "StandardScaler"
+    },
+    "relative_time_idx": {
+      "center": 0.0,
+      "scale": 1.0,
+      "type": "StandardScaler",
+      "fitted": true,
+      "matched_as": "StandardScaler"
+    },
+    "Lagged_Energy_168h": {
+      "center": -0.4496107157453823,
+      "scale": 0.8322993482140603,
+      "type": "StandardScaler",
+      "fitted": true,
+      "matched_as": "StandardScaler"
+    },
+    "Rolling_Mean_Energy_24h": {
+      "center": -0.35113800233510445,
+      "scale": 0.7585157471881466,
+      "type": "StandardScaler",
+      "fitted": true,
+      "matched_as": "StandardScaler"
+    },
+    "Lagged_Energy_24h": {
+      "center": -0.4741268879159275,
+      "scale": 0.8717861892494281,
+      "type": "StandardScaler",
+      "fitted": true,
+      "matched_as": "StandardScaler"
+    },
+    "Rolling_Mean_Energy_168h": {
+      "center": -0.30720680404822603,
+      "scale": 0.7389637351596623,
+      "type": "StandardScaler",
+      "fitted": true,
+      "matched_as": "StandardScaler"
+    },
+    "IsCharging_Lag1h_f": {
+      "center": 0.7156166502601603,
+      "scale": 0.4511202280219629,
+      "type": "StandardScaler",
+      "fitted": true,
+      "matched_as": "StandardScaler"
+    },
+    "IsCharging_Lag24h_f": {
+      "center": 0.7141283457554024,
+      "scale": 0.4518285643294974,
+      "type": "StandardScaler",
+      "fitted": true,
+      "matched_as": "StandardScaler"
+    },
+    "Was_Idle_LastHour": {
+      "center": 0.28427201987531053,
+      "scale": 0.45106700011342177,
+      "type": "StandardScaler",
+      "fitted": true,
+      "matched_as": "StandardScaler"
+    },
+    "Temperature_C": {
+      "center": -0.007662686218833912,
+      "scale": 0.5744249816352368,
+      "type": "StandardScaler",
+      "fitted": true,
+      "matched_as": "StandardScaler"
+    },
+    "Relative_Humidity": {
+      "center": -0.057079839240909196,
+      "scale": 0.705192190425729,
+      "type": "StandardScaler",
+      "fitted": true,
+      "matched_as": "StandardScaler"
+    },
+    "Precipitation_mm": {
+      "center": 1.6959639994374913,
+      "scale": 4.594656742881717,
+      "type": "StandardScaler",
+      "fitted": true,
+      "matched_as": "StandardScaler"
+    },
+    "Is_Abnormal": {
+      "center": 0.09734917733089579,
+      "scale": 0.2964326483434198,
+      "type": "StandardScaler",
+      "fitted": true,
+      "matched_as": "StandardScaler"
+    },
+    "Is_Covid_Lockdown": {
+      "center": 0.1663619744058501,
+      "scale": 0.3724052468449355,
+      "type": "StandardScaler",
+      "fitted": true,
+      "matched_as": "StandardScaler"
+    }
+  },
+  "static_reals": [
+    "encoder_length"
+  ],
+  "time_varying_known_reals": [
+    "Fee",
+    "relative_time_idx"
+  ],
+  "time_varying_unknown_reals": [
+    "Lagged_Energy_168h",
+    "Rolling_Mean_Energy_24h",
+    "Lagged_Energy_24h",
+    "Rolling_Mean_Energy_168h",
+    "IsCharging_Lag1h_f",
+    "IsCharging_Lag24h_f",
+    "Was_Idle_LastHour",
+    "Temperature_C",
+    "Relative_Humidity",
+    "Precipitation_mm",
+    "Is_Abnormal",
+    "Is_Covid_Lockdown"
+  ]
+}

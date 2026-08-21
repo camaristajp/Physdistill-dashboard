@@ -1,0 +1,32 @@
+{
+  "student": {
+    "label": "PhysDistill-EV (distilled student)",
+    "file": "physdistill_ev.ckpt",
+    "n_params": 4148,
+    "epoch": 21,
+    "global_step": 7260
+  },
+  "baseline": {
+    "label": "Baseline student (no distillation)",
+    "file": "baseline_student.ckpt",
+    "n_params": 4148,
+    "epoch": 15,
+    "global_step": 5280
+  },
+  "teacher": {
+    "label": "Teacher TFT",
+    "file": "teacher_tft.ckpt",
+    "n_params": 1296305,
+    "epoch": 3,
+    "global_step": 1312
+  },
+  "paper_record": {
+    "kd_alpha": 0.4,
+    "wmape_table5_pct": 13.28,
+    "reduction_x": 291,
+    "pi5_latency_ms": 2.19,
+    "desktop_latency_ms_mean": 1.49,
+    "desktop_latency_ms_std": 0.14,
+    "source": "README.md, Verified contracts / Verification record"
+  }
+}
